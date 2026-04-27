@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Branch tree View -->
+    <record id="tree" model="ir.ui.view">
+        <field name="name">mutego.branch.tree</field>
+        <field name="model">mutego.branch</field>
+        <field name="arch" type="xml">
+            <tree string="Branches">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="city"/>
+                <field name="country_id"/>
+                <field name="phone"/>
+                <field name="manager_name"/>
+                <field name="is_headquarters"/>
+                <field name="website_published"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Branch Form View -->
+    <record id="mutego_branch_form_view" model="ir.ui.view">
+        <field name="name">mutego.branch.form</field>
+        <field name="model">mutego.branch</field>
+        <field name="arch" type="xml">
+            <form string="Branch">
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Branch Name"/>
+                        </h1>
+                        <div>
+                            <field name="is_headquarters" widget="boolean_toggle"/>
+                            <label for="is_headquarters" string=" Headquarters"/>
+                        </div>
+                    </div>
+                    <group>
+                        <group string="Location">
+                            <field name="address"/>
+                            <field name="city"/>
+                            <field name="country_id"/>
+                        </group>
+                        <group string="Contact">
+                            <field name="phone"/>
+                            <field name="email"/>
+                            <field name="manager_name"/>
+                            <field name="working_hours"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Map Coordinates">
+                            <field name="latitude"/>
+                            <field name="longitude"/>
+                        </group>
+                        <group string="Website Settings">
+                            <field name="website_published"/>
+                            <field name="sequence"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description" widget="html"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Branch Search View -->
+    <record id="mutego_branch_search_view" model="ir.ui.view">
+        <field name="name">mutego.branch.search</field>
+        <field name="model">mutego.branch</field>
+        <field name="arch" type="xml">
+            <search string="Search Branches">
+                <field name="name"/>
+                <field name="city"/>
+                <filter string="Headquarters" name="hq" domain="[('is_headquarters', '=', True)]"/>
+                <filter string="Published" name="published" domain="[('website_published', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Branch Action -->
+    <record id="action_mutego_branch" model="ir.actions.act_window">
+        <field name="name">Branches</field>
+        <field name="res_model">mutego.branch</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

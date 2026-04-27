@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- =====================================================================
+         BRANCHES PAGE
+         ===================================================================== -->
+    <template id="branches_page" name="Our Branches">
+        <t t-call="mutego_distribution.mutego_layout">
+
+            <section class="mutego-page-hero">
+                <div class="container text-center">
+                    <h1 class="page-hero-title">Our Branch Network</h1>
+                    <p class="page-hero-subtitle">
+                        Strategically located across Kenya to serve you faster and better.
+                    </p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active">Branches</li>
+                        </ol>
+                    </nav>
+                </div>
+            </section>
+
+            <section class="mutego-section">
+                <div class="container">
+
+                    <!-- Stats Row -->
+                    <div class="row gy-3 mb-6 text-center">
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <div class="stat-number" t-esc="len(branches)"/>
+                                <div class="stat-label">Total Branches</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <div class="stat-number">
+                                    <t t-esc="len(set(b.city for b in branches))"/>
+                                </div>
+                                <div class="stat-label">Cities Covered</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-item">
+                                <div class="stat-number">200+</div>
+                                <div class="stat-label">Staff Nationwide</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Branches Grid -->
+                    <div class="row gy-5">
+                        <t t-foreach="branches" t-as="branch">
+                            <div class="col-md-6">
+                                <div class="branch-detail-card">
+                                    <div class="branch-detail-header">
+                                        <div>
+                                            <t t-if="branch.is_headquarters">
+                                                <span class="branch-hq-badge">Headquarters</span>
+                                            </t>
+                                            <h3 class="branch-detail-name" t-esc="branch.name"/>
+                                        </div>
+                                        <div class="branch-city-badge">
+                                            <t t-esc="branch.city"/>
+                                        </div>
+                                    </div>
+                                    <t t-if="branch.image">
+                                        <img t-att-src="'/web/image/mutego.branch/' + str(branch.id) + '/image'"
+                                             t-att-alt="branch.name"
+                                             class="branch-detail-img"/>
+                                    </t>
+                                    <div class="branch-detail-info">
+                                        <div class="branch-info-row">
+                                            <i class="fa fa-map-marker fa-fw"/>
+                                            <span>
+                                                <t t-esc="branch.address"/>,
+                                                <t t-esc="branch.city"/>,
+                                                <t t-esc="branch.country_id.name"/>
+                                            </span>
+                                        </div>
+                                        <t t-if="branch.phone">
+                                            <div class="branch-info-row">
+                                                <i class="fa fa-phone fa-fw"/>
+                                                <a t-att-href="'tel:' + branch.phone" t-esc="branch.phone"/>
+                                            </div>
+                                        </t>
+                                        <t t-if="branch.email">
+                                            <div class="branch-info-row">
+                                                <i class="fa fa-envelope fa-fw"/>
+                                                <a t-att-href="'mailto:' + branch.email" t-esc="branch.email"/>
+                                            </div>
+                                        </t>
+                                        <t t-if="branch.manager_name">
+                                            <div class="branch-info-row">
+                                                <i class="fa fa-user fa-fw"/>
+                                                <span>Branch Manager: <strong t-esc="branch.manager_name"/></span>
+                                            </div>
+                                        </t>
+                                        <t t-if="branch.working_hours">
+                                            <div class="branch-info-row">
+                                                <i class="fa fa-clock-o fa-fw"/>
+                                                <span t-esc="branch.working_hours"/>
+                                            </div>
+                                        </t>
+                                        <t t-if="branch.description">
+                                            <div class="branch-detail-desc mt-3" t-out="branch.description"/>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="mutego-cta">
+                <div class="container text-center">
+                    <h2 class="cta-title">Find Your Nearest Branch</h2>
+                    <p class="cta-subtitle">Contact any of our branches directly or reach out to our central team.</p>
+                    <a href="/contact" class="btn mutego-btn-primary btn-lg">Contact Us</a>
+                </div>
+            </section>
+
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- =====================================================================
+         ABOUT US PAGE
+         ===================================================================== -->
+    <template id="about_page" name="About Us">
+        <t t-call="mutego_distribution.mutego_layout">
+
+            <!-- Page Header -->
+            <section class="mutego-page-hero">
+                <div class="container text-center">
+                    <h1 class="page-hero-title">About Mutego Distribution</h1>
+                    <p class="page-hero-subtitle">
+                        Two decades of connecting great brands with communities across Kenya.
+                    </p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active">About Us</li>
+                        </ol>
+                    </nav>
+                </div>
+            </section>
+
+            <!-- Company Story -->
+            <section class="mutego-section">
+                <div class="container">
+                    <div class="row align-items-center gy-5">
+                        <div class="col-lg-6">
+                            <span class="section-tag">Our Story</span>
+                            <h2 class="section-title">Built on Trust, Driven by Purpose</h2>
+                            <p>
+                                Mutego Distribution Company was founded with a single clear goal: to be the most
+                                dependable link in the beverage supply chain between world-class brands and the
+                                communities that love them.
+                            </p>
+                            <p>
+                                Starting with a single depot in Nairobi's Industrial Area over 20 years ago,
+                                we have grown into a nationally recognized distribution company with 5 strategically
+                                located branches covering Kenya's key commercial centers.
+                            </p>
+                            <p>
+                                Today, Mutego is an authorized distributor for PepsiCo's full portfolio in Kenya —
+                                moving millions of bottles of Pepsi, 7UP, Mountain Dew, Mirinda, Aquafina, and
+                                Lipton every month, from our cold-chain facilities to retail shelves nationwide.
+                            </p>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about-image-block">
+                                <div class="about-stat-card">
+                                    <div class="about-stat-number">20+</div>
+                                    <div class="about-stat-label">Years in Business</div>
+                                </div>
+                                <div class="about-stat-card">
+                                    <div class="about-stat-number">5</div>
+                                    <div class="about-stat-label">Branch Locations</div>
+                                </div>
+                                <div class="about-stat-card">
+                                    <div class="about-stat-number">200+</div>
+                                    <div class="about-stat-label">Employees</div>
+                                </div>
+                                <div class="about-stat-card">
+                                    <div class="about-stat-number">2,000+</div>
+                                    <div class="about-stat-label">Retail Partners</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mission, Vision, Values -->
+            <section class="mutego-section mutego-section-alt">
+                <div class="container">
+                    <div class="row gy-4">
+                        <div class="col-md-4">
+                            <div class="mvv-card">
+                                <div class="mvv-icon"><i class="fa fa-bullseye fa-2x"/></div>
+                                <h3>Our Mission</h3>
+                                <p>
+                                    To deliver world-class beverages to every retailer, wholesaler, and consumer
+                                    in Kenya — reliably, efficiently, and with the highest standard of service.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mvv-card">
+                                <div class="mvv-icon"><i class="fa fa-eye fa-2x"/></div>
+                                <h3>Our Vision</h3>
+                                <p>
+                                    To be East Africa's most trusted and innovative beverage distribution company —
+                                    recognized for integrity, reach, and excellence.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mvv-card">
+                                <div class="mvv-icon"><i class="fa fa-star fa-2x"/></div>
+                                <h3>Our Values</h3>
+                                <ul class="values-tree">
+                                    <li>Integrity in every transaction</li>
+                                    <li>Reliability in every delivery</li>
+                                    <li>Excellence in service</li>
+                                    <li>Partnership with our clients</li>
+                                    <li>Community responsibility</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- What We Do -->
+            <section class="mutego-section">
+                <div class="container">
+                    <div class="section-header text-center mb-5">
+                        <span class="section-tag">Operations</span>
+                        <h2 class="section-title">What We Do</h2>
+                    </div>
+                    <div class="row gy-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="ops-card">
+                                <i class="fa fa-industry fa-2x ops-icon"/>
+                                <h5>Warehousing</h5>
+                                <p>State-of-the-art cold-chain warehouses at each branch ensure product freshness from receipt to delivery.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="ops-card">
+                                <i class="fa fa-truck fa-2x ops-icon"/>
+                                <h5>Fleet Distribution</h5>
+                                <p>A modern fleet of refrigerated trucks delivering to thousands of retail points across Kenya every day.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="ops-card">
+                                <i class="fa fa-users fa-2x ops-icon"/>
+                                <h5>Sales Team</h5>
+                                <p>Dedicated territory sales representatives maintaining relationships with every key account and outlet.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="ops-card">
+                                <i class="fa fa-bar-chart fa-2x ops-icon"/>
+                                <h5>Market Intelligence</h5>
+                                <p>Data-driven insights to help our partners optimize stock levels and maximize shelf performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="mutego-cta">
+                <div class="container text-center">
+                    <h2 class="cta-title">Ready to Work with Us?</h2>
+                    <p class="cta-subtitle">Reach out to our team and explore how Mutego can serve your business.</p>
+                    <a href="/contact" class="btn mutego-btn-primary btn-lg">Contact Us Today</a>
+                </div>
+            </section>
+
+        </t>
+    </template>
+
+</odoo>

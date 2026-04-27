@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ── BRANCHES ──────────────────────────────────────────────────── -->
+
+        <record id="branch_nairobi_hq" model="mutego.branch">
+            <field name="name">Mutego HQ - Nairobi</field>
+            <field name="address">123 Industrial Area, Likoni Road</field>
+            <field name="city">Nairobi</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="phone">+254 700 100 000</field>
+            <field name="email">hq@mutego.co.ke</field>
+            <field name="manager_name">James Mutua</field>
+            <field name="is_headquarters">True</field>
+            <field name="latitude">-1.286389</field>
+            <field name="longitude">36.817223</field>
+            <field name="working_hours">Mon - Fri: 8:00 AM - 5:30 PM | Sat: 8:00 AM - 1:00 PM</field>
+            <field name="website_published">True</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="branch_mombasa" model="mutego.branch">
+            <field name="name">Mutego Mombasa Branch</field>
+            <field name="address">45 Mombasa Road, Industrial Zone</field>
+            <field name="city">Mombasa</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="phone">+254 700 200 001</field>
+            <field name="email">mombasa@mutego.co.ke</field>
+            <field name="manager_name">Sarah Odhiambo</field>
+            <field name="is_headquarters">False</field>
+            <field name="latitude">-4.043477</field>
+            <field name="longitude">39.668207</field>
+            <field name="working_hours">Mon - Fri: 8:00 AM - 5:00 PM</field>
+            <field name="website_published">True</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="branch_kisumu" model="mutego.branch">
+            <field name="name">Mutego Kisumu Branch</field>
+            <field name="address">12 Oginga Odinga Street</field>
+            <field name="city">Kisumu</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="phone">+254 700 300 002</field>
+            <field name="email">kisumu@mutego.co.ke</field>
+            <field name="manager_name">Peter Otieno</field>
+            <field name="is_headquarters">False</field>
+            <field name="latitude">-0.091702</field>
+            <field name="longitude">34.767956</field>
+            <field name="working_hours">Mon - Fri: 8:00 AM - 5:00 PM</field>
+            <field name="website_published">True</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="branch_nakuru" model="mutego.branch">
+            <field name="name">Mutego Nakuru Branch</field>
+            <field name="address">78 Kenyatta Avenue</field>
+            <field name="city">Nakuru</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="phone">+254 700 400 003</field>
+            <field name="email">nakuru@mutego.co.ke</field>
+            <field name="manager_name">Grace Wanjiku</field>
+            <field name="is_headquarters">False</field>
+            <field name="latitude">-0.303099</field>
+            <field name="longitude">36.080026</field>
+            <field name="working_hours">Mon - Fri: 8:00 AM - 5:00 PM</field>
+            <field name="website_published">True</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <record id="branch_eldoret" model="mutego.branch">
+            <field name="name">Mutego Eldoret Branch</field>
+            <field name="address">34 Uganda Road</field>
+            <field name="city">Eldoret</field>
+            <field name="country_id" ref="base.ke"/>
+            <field name="phone">+254 700 500 004</field>
+            <field name="email">eldoret@mutego.co.ke</field>
+            <field name="manager_name">David Kipchoge</field>
+            <field name="is_headquarters">False</field>
+            <field name="latitude">0.520360</field>
+            <field name="longitude">35.269780</field>
+            <field name="working_hours">Mon - Fri: 8:00 AM - 5:00 PM</field>
+            <field name="website_published">True</field>
+            <field name="sequence">5</field>
+        </record>
+
+        <!-- ── PRODUCTS ───────────────────────────────────────────────────── -->
+
+        <record id="product_pepsi_500" model="mutego.product">
+            <field name="name">Pepsi Cola</field>
+            <field name="description">&lt;p&gt;The original Pepsi-Cola — crisp and refreshing with the bold cola taste loved by millions.&lt;/p&gt;</field>
+            <field name="brand">pepsi</field>
+            <field name="category">carbonated</field>
+            <field name="volume_ml">500</field>
+            <field name="is_active">True</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="product_pepsi_330" model="mutego.product">
+            <field name="name">Pepsi Cola Can</field>
+            <field name="description">&lt;p&gt;Classic Pepsi Cola in a convenient 330ml can — perfect on the go.&lt;/p&gt;</field>
+            <field name="brand">pepsi</field>
+            <field name="category">carbonated</field>
+            <field name="volume_ml">330</field>
+            <field name="is_active">True</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="sequence">2</field>
+        </record>
+
+        <record id="product_pepsi_max" model="mutego.product">
+            <field name="name">Pepsi Max</field>
+            <field name="description">&lt;p&gt;Zero sugar. Maximum cola taste. Pepsi Max delivers the bold Pepsi flavor without the calories.&lt;/p&gt;</field>
+            <field name="brand">pepsi</field>
+            <field name="category">carbonated</field>
+            <field name="volume_ml">500</field>
+            <field name="is_active">True</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="product_7up_500" model="mutego.product">
+            <field name="name">7UP</field>
+            <field name="description">&lt;p&gt;Crisp, clean lemon-lime flavor — refreshing, caffeine-free, and loved across Kenya.&lt;/p&gt;</field>
+            <field name="brand">7up</field>
+            <field name="category">carbonated</field>
+            <field name="volume_ml">500</field>
+            <field name="is_active">True</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="product_7up_330" model="mutego.product">
+            <field name="name">7UP Can</field>
+            <field name="description">&lt;p&gt;7UP in a handy 330ml can for those refreshing on-the-move moments.&lt;/p&gt;</field>
+            <field name="brand">7up</field>
+            <field name="category">carbonated</field>
+            <field name="volume_ml">330</field>
+            <field name="is_active">True</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="sequence">11</field>
+        </record>
+
+        <record id="product_7up_free" model="mutego.product">
+            <field name="name">7UP Free</field>
+            <field name="description">&lt;p&gt;All the refreshing 7UP lemon-lime flavor with zero sugar — for the health-conscious consumer.&lt;/p&gt;</field>
+            <field name="brand">7up</field>
+            <field name="category">carbonated</field>
+            <field name="volume_ml">500</field>
+            <field name="is_active">True</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="sequence">12</field>
+        </record>
+
+        <record id="product_mountain_dew_500" model="mutego.product">
+            <field name="name">Mountain Dew</field>
+            <field name="description">&lt;p&gt;Citrus-charged energy with an intense rush of bold flavor. Not for the timid.&lt;/p&gt;</field>
+            <field name="brand">mountain_dew</field>
+            <field name="category">carbonated</field>
+            <field name="volume_ml">500</field>
+            <field name="is_active">True</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="product_mirinda_orange" model="mutego.product">
+            <field name="name">Mirinda Orange</field>
+            <field name="description">&lt;p&gt;Bold, fruity orange flavor in every sip — the taste that sparks a smile.&lt;/p&gt;</field>
+            <field name="brand">mirinda</field>
+            <field name="category">carbonated</field>
+            <field name="volume_ml">500</field>
+            <field name="is_active">True</field>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="product_mirinda_strawberry" model="mutego.product">
+            <field name="name">Mirinda Strawberry</field>
+            <field name="description">&lt;p&gt;Sweet and tangy strawberry flavor — Mirinda's fan-favorite variant.&lt;/p&gt;</field>
+            <field name="brand">mirinda</field>
+            <field name="category">carbonated</field>
+            <field name="volume_ml">500</field>
+            <field name="is_active">True</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="sequence">31</field>
+        </record>
+
+        <record id="product_aquafina_500" model="mutego.product">
+            <field name="name">Aquafina</field>
+            <field name="description">&lt;p&gt;Pure, crisp purified drinking water — the clean choice for hydration.&lt;/p&gt;</field>
+            <field name="brand">aquafina</field>
+            <field name="category">water</field>
+            <field name="volume_ml">500</field>
+            <field name="is_active">True</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="sequence">40</field>
+        </record>
+
+        <record id="product_lipton_lemon" model="mutego.product">
+            <field name="name">Lipton Ice Tea Lemon</field>
+            <field name="description">&lt;p&gt;Refreshing iced tea with a zesty hint of lemon — brewed for real tea lovers.&lt;/p&gt;</field>
+            <field name="brand">lipton</field>
+            <field name="category">tea</field>
+            <field name="volume_ml">500</field>
+            <field name="is_active">True</field>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+            <field name="sequence">50</field>
+        </record>
+
+        <!-- ── NEWS ──────────────────────────────────────────────────────── -->
+
+        <record id="news_eldoret_expansion" model="mutego.news">
+            <field name="title">Mutego Distribution Expands to Eldoret</field>
+            <field name="summary">Mutego Distribution Company is proud to announce the opening of our newest branch in Eldoret, bringing our premium Pepsi and 7UP products closer to customers in the Rift Valley region.</field>
+            <field name="content">&lt;p&gt;Mutego Distribution Company continues its expansion across Kenya with the official launch of our Eldoret branch. Located on Uganda Road, the new facility will serve retailers and wholesalers across the Rift Valley. The branch is managed by David Kipchoge and features a full cold-chain storage facility.&lt;/p&gt;&lt;p&gt;We are committed to ensuring that every bottle of Pepsi, 7UP, Mountain Dew, and Mirinda reaches our customers at peak freshness. The Eldoret branch represents our confidence in the growth potential of the North Rift region.&lt;/p&gt;</field>
+            <field name="author">Mutego Distribution</field>
+            <field name="published_date" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+            <field name="is_featured">True</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="news_7up_free" model="mutego.news">
+            <field name="title">New 7UP Free — Zero Sugar, Full Flavor</field>
+            <field name="summary">We are now distributing the all-new 7UP Free across all our branches. Enjoy the crisp lemon-lime taste you love with zero sugar.</field>
+            <field name="content">&lt;p&gt;7UP Free is now available through all Mutego Distribution branches nationwide. The new zero-sugar variant delivers the same refreshing citrus taste as the original 7UP — perfect for health-conscious consumers who refuse to compromise on flavor.&lt;/p&gt;&lt;p&gt;Available in 330ml cans and 500ml bottles. Contact your nearest Mutego branch to add 7UP Free to your order today.&lt;/p&gt;</field>
+            <field name="author">Mutego Distribution</field>
+            <field name="published_date" eval="(DateTime.now() - relativedelta(days=14)).strftime('%Y-%m-%d')"/>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+        </record>
+
+        <record id="news_award_2024" model="mutego.news">
+            <field name="title">Mutego Wins Best Distributor Award 2024</field>
+            <field name="summary">We are honored to have been recognized as the Best PepsiCo Distributor in East Africa for 2024 at the annual Beverages Excellence Awards.</field>
+            <field name="content">&lt;p&gt;Mutego Distribution received the prestigious Best Distributor Award at the 2024 Beverages Excellence Awards held in Nairobi. The award recognizes our exceptional distribution network, consistent delivery performance, and outstanding customer service.&lt;/p&gt;&lt;p&gt;Our team of over 200 dedicated employees across 5 branches made this achievement possible. We remain committed to raising the bar every year.&lt;/p&gt;</field>
+            <field name="author">Mutego Distribution</field>
+            <field name="published_date" eval="(DateTime.now() - relativedelta(days=30)).strftime('%Y-%m-%d')"/>
+            <field name="is_featured">False</field>
+            <field name="website_published">True</field>
+        </record>
+
+    </data>
+</odoo>

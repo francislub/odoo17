@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- News List View -->
+    <record id="mutego_news_list_view" model="ir.ui.view">
+        <field name="name">mutego.news.tree</field>
+        <field name="model">mutego.news</field>
+        <field name="arch" type="xml">
+            <tree string="News" decoration-muted="not website_published">
+                <field name="title"/>
+                <field name="author"/>
+                <field name="published_date"/>
+                <field name="is_featured"/>
+                <field name="website_published"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- News Form View -->
+    <record id="mutego_news_form_view" model="ir.ui.view">
+        <field name="name">mutego.news.form</field>
+        <field name="model">mutego.news</field>
+        <field name="arch" type="xml">
+            <form string="News Article">
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar" options="{'size': [400, 300]}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="title" placeholder="Article Title"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Publication">
+                            <field name="author"/>
+                            <field name="published_date"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                        </group>
+                        <group string="Website Settings">
+                            <field name="website_published"/>
+                            <field name="is_featured"/>
+                            <field name="slug"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Summary">
+                            <field name="summary" placeholder="Brief summary shown in news listings..."/>
+                        </page>
+                        <page string="Full Content">
+                            <field name="content" widget="html"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- News Search View -->
+    <record id="mutego_news_search_view" model="ir.ui.view">
+        <field name="name">mutego.news.search</field>
+        <field name="model">mutego.news</field>
+        <field name="arch" type="xml">
+            <search string="Search News">
+                <field name="title"/>
+                <field name="author"/>
+                <filter string="Published" name="published" domain="[('website_published', '=', True)]"/>
+                <filter string="Featured" name="featured" domain="[('is_featured', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- News Action -->
+    <record id="action_mutego_news" model="ir.actions.act_window">
+        <field name="name">News &amp; Announcements</field>
+        <field name="res_model">mutego.news</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

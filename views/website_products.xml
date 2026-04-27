@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- =====================================================================
+         PRODUCTS CATALOG PAGE
+         ===================================================================== -->
+    <template id="products_page" name="Products Catalog">
+        <t t-call="mutego_distribution.mutego_layout">
+
+            <!-- Page Header -->
+            <section class="mutego-page-hero">
+                <div class="container text-center">
+                    <h1 class="page-hero-title">Our Product Catalog</h1>
+                    <p class="page-hero-subtitle">
+                        The full range of PepsiCo beverages distributed by Mutego across Kenya.
+                    </p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active">Products</li>
+                        </ol>
+                    </nav>
+                </div>
+            </section>
+
+            <section class="mutego-section">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Sidebar Filters -->
+                        <div class="col-lg-3 mb-4 mb-lg-0">
+                            <div class="filter-panel">
+                                <h5 class="filter-heading">Filter by Brand</h5>
+                                <a t-att-href="'/products' + ('?category=' + current_category if current_category else '')"
+                                   t-att-class="'filter-link' + (' active' if not current_brand else '')">
+                                    All Brands
+                                </a>
+                                <t t-foreach="brand_options" t-as="brand">
+                                    <a t-att-href="'/products?brand=' + brand[0] + ('&amp;category=' + current_category if current_category else '')"
+                                       t-att-class="'filter-link' + (' active' if current_brand == brand[0] else '')">
+                                        <t t-esc="brand[1]"/>
+                                    </a>
+                                </t>
+
+                                <h5 class="filter-heading mt-4">Filter by Category</h5>
+                                <a t-att-href="'/products' + ('?brand=' + current_brand if current_brand else '')"
+                                   t-att-class="'filter-link' + (' active' if not current_category else '')">
+                                    All Categories
+                                </a>
+                                <t t-foreach="category_options" t-as="cat">
+                                    <a t-att-href="'/products?category=' + cat[0] + ('&amp;brand=' + current_brand if current_brand else '')"
+                                       t-att-class="'filter-link' + (' active' if current_category == cat[0] else '')">
+                                        <t t-esc="cat[1]"/>
+                                    </a>
+                                </t>
+                            </div>
+                        </div>
+
+                        <!-- Products Grid -->
+                        <div class="col-lg-9">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <p class="products-count mb-0">
+                                    <strong t-esc="len(products)"/> products found
+                                </p>
+                                <t t-if="current_brand or current_category">
+                                    <a href="/products" class="btn btn-sm btn-outline-secondary">
+                                        <i class="fa fa-times me-1"/> Clear Filters
+                                    </a>
+                                </t>
+                            </div>
+
+                            <t t-if="not products">
+                                <div class="empty-state text-center py-5">
+                                    <i class="fa fa-search fa-3x text-muted mb-3"/>
+                                    <h5>No products found</h5>
+                                    <p class="text-muted">Try adjusting your filters.</p>
+                                    <a href="/products" class="btn mutego-btn-primary">View All Products</a>
+                                </div>
+                            </t>
+
+                            <div class="row gy-4">
+                                <t t-foreach="products" t-as="product">
+                                    <div class="col-sm-6 col-xl-4">
+                                        <div class="product-card">
+                                            <a t-att-href="'/products/' + str(product.id)" class="product-img-link">
+                                                <div class="product-image-wrap">
+                                                    <t t-if="product.image">
+                                                        <img t-att-src="'/web/image/mutego.product/' + str(product.id) + '/image_thumb'"
+                                                             t-att-alt="product.name"
+                                                             class="product-img"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <div class="product-img-placeholder">
+                                                            <span t-esc="product.get_brand_label()"/>
+                                                        </div>
+                                                    </t>
+                                                </div>
+                                            </a>
+                                            <div class="product-info">
+                                                <span class="product-brand" t-esc="product.get_brand_label()"/>
+                                                <h5 class="product-name">
+                                                    <a t-att-href="'/products/' + str(product.id)" t-esc="product.name"/>
+                                                </h5>
+                                                <div class="product-meta">
+                                                    <t t-if="product.volume_ml">
+                                                        <span class="product-volume" t-esc="str(product.volume_ml) + 'ml'"/>
+                                                    </t>
+                                                    <span class="product-category" t-esc="product.get_category_label()"/>
+                                                </div>
+                                                <a t-att-href="'/products/' + str(product.id)"
+                                                   class="btn mutego-btn-outline btn-sm mt-2">
+                                                    View Details
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </t>
+    </template>
+
+    <!-- =====================================================================
+         PRODUCT DETAIL PAGE
+         ===================================================================== -->
+    <template id="product_detail_page" name="Product Detail">
+        <t t-call="mutego_distribution.mutego_layout">
+
+            <section class="mutego-page-hero">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/products">Products</a></li>
+                            <li class="breadcrumb-item active" t-esc="product.name"/>
+                        </ol>
+                    </nav>
+                </div>
+            </section>
+
+            <section class="mutego-section">
+                <div class="container">
+                    <div class="row gy-5 align-items-center">
+                        <div class="col-md-5 text-center">
+                            <t t-if="product.image">
+                                <img t-att-src="'/web/image/mutego.product/' + str(product.id) + '/image'"
+                                     t-att-alt="product.name"
+                                     class="product-detail-img img-fluid"/>
+                            </t>
+                            <t t-else="">
+                                <div class="product-detail-placeholder">
+                                    <span t-esc="product.get_brand_label()"/>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="col-md-7">
+                            <span class="product-brand-tag" t-esc="product.get_brand_label()"/>
+                            <h1 class="product-detail-title" t-esc="product.name"/>
+                            <div class="product-detail-meta">
+                                <t t-if="product.volume_ml">
+                                    <span class="meta-item">
+                                        <strong>Volume:</strong>
+                                        <t t-esc="str(product.volume_ml) + 'ml'"/>
+                                    </span>
+                                </t>
+                                <span class="meta-item">
+                                    <strong>Category:</strong>
+                                    <t t-esc="product.get_category_label()"/>
+                                </span>
+                            </div>
+                            <t t-if="product.description">
+                                <div class="product-detail-desc" t-out="product.description"/>
+                            </t>
+                            <div class="product-detail-actions mt-4">
+                                <a href="/contact" class="btn mutego-btn-primary btn-lg me-3">
+                                    Request Order Quote
+                                </a>
+                                <a href="/products" class="btn mutego-btn-outline btn-lg">
+                                    Back to Catalog
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Related Products -->
+                    <t t-if="related_products">
+                        <div class="mt-6">
+                            <h3 class="mb-4">More from <t t-esc="product.get_brand_label()"/></h3>
+                            <div class="row gy-4">
+                                <t t-foreach="related_products" t-as="rp">
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="product-card">
+                                            <a t-att-href="'/products/' + str(rp.id)" class="product-img-link">
+                                                <div class="product-image-wrap">
+                                                    <t t-if="rp.image">
+                                                        <img t-att-src="'/web/image/mutego.product/' + str(rp.id) + '/image_thumb'"
+                                                             t-att-alt="rp.name" class="product-img"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <div class="product-img-placeholder">
+                                                            <span t-esc="rp.get_brand_label()"/>
+                                                        </div>
+                                                    </t>
+                                                </div>
+                                            </a>
+                                            <div class="product-info">
+                                                <h6 class="product-name">
+                                                    <a t-att-href="'/products/' + str(rp.id)" t-esc="rp.name"/>
+                                                </h6>
+                                                <t t-if="rp.volume_ml">
+                                                    <span class="product-volume" t-esc="str(rp.volume_ml) + 'ml'"/>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </section>
+
+        </t>
+    </template>
+
+</odoo>

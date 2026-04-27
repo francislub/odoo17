@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Contact List View -->
+    <record id="mutego_contact_list_view" model="ir.ui.view">
+        <field name="name">mutego.contact.tree</field>
+        <field name="model">mutego.contact</field>
+        <field name="arch" type="xml">
+            <tree string="Contact Submissions" decoration-info="state == 'new'" decoration-success="state == 'resolved'">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="subject"/>
+                <field name="branch_id"/>
+                <field name="state" widget="badge"
+                       decoration-info="state == 'new'"
+                       decoration-warning="state == 'in_progress'"
+                       decoration-success="state == 'resolved'"
+                       decoration-muted="state == 'closed'"/>
+                <field name="create_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Contact Form View -->
+    <record id="mutego_contact_form_view" model="ir.ui.view">
+        <field name="name">mutego.contact.form</field>
+        <field name="model">mutego.contact</field>
+        <field name="arch" type="xml">
+            <form string="Contact Submission">
+                <header>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="new,in_progress,resolved,closed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Contact Details">
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="branch_id"/>
+                        </group>
+                        <group string="Message">
+                            <field name="subject"/>
+                        </group>
+                    </group>
+                    <group string="Message Content">
+                        <field name="message" nolabel="1"/>
+                    </group>
+                    <group string="Internal Notes">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Contact Search View -->
+    <record id="mutego_contact_search_view" model="ir.ui.view">
+        <field name="name">mutego.contact.search</field>
+        <field name="model">mutego.contact</field>
+        <field name="arch" type="xml">
+            <search string="Search Contacts">
+                <field name="name"/>
+                <field name="email"/>
+                <filter string="New" name="new" domain="[('state', '=', 'new')]"/>
+                <filter string="In Progress" name="in_progress" domain="[('state', '=', 'in_progress')]"/>
+                <filter string="Resolved" name="resolved" domain="[('state', '=', 'resolved')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Contact Action -->
+    <record id="action_mutego_contact" model="ir.actions.act_window">
+        <field name="name">Contact Submissions</field>
+        <field name="res_model">mutego.contact</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_new': 1}</field>
+    </record>
+
+</odoo>

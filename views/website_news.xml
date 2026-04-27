@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- =====================================================================
+         NEWS PAGE
+         ===================================================================== -->
+    <template id="news_page" name="News and Announcements">
+        <t t-call="mutego_distribution.mutego_layout">
+
+            <section class="mutego-page-hero">
+                <div class="container text-center">
+                    <h1 class="page-hero-title">News &amp; Announcements</h1>
+                    <p class="page-hero-subtitle">
+                        The latest updates from Mutego Distribution Company.
+                    </p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active">News</li>
+                        </ol>
+                    </nav>
+                </div>
+            </section>
+
+            <section class="mutego-section">
+                <div class="container">
+                    <t t-if="not news_items">
+                        <div class="empty-state text-center py-5">
+                            <i class="fa fa-newspaper-o fa-3x text-muted mb-3"/>
+                            <h5>No news articles yet</h5>
+                            <p class="text-muted">Check back soon for updates.</p>
+                        </div>
+                    </t>
+                    <div class="row gy-5">
+                        <t t-foreach="news_items" t-as="article">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="news-card">
+                                    <a t-att-href="'/news/' + str(article.id)" class="news-img-link">
+                                        <t t-if="article.image">
+                                            <img t-att-src="'/web/image/mutego.news/' + str(article.id) + '/image_thumb'"
+                                                 t-att-alt="article.title"
+                                                 class="news-img"/>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="news-img-placeholder">
+                                                <i class="fa fa-newspaper-o fa-3x"/>
+                                            </div>
+                                        </t>
+                                    </a>
+                                    <div class="news-body">
+                                        <div class="news-meta">
+                                            <span class="news-date" t-esc="article.published_date"/>
+                                            <t t-if="article.author">
+                                                <span class="news-author">by <t t-esc="article.author"/></span>
+                                            </t>
+                                        </div>
+                                        <h5 class="news-title">
+                                            <a t-att-href="'/news/' + str(article.id)" t-esc="article.title"/>
+                                        </h5>
+                                        <p class="news-summary" t-esc="article.summary"/>
+                                        <a t-att-href="'/news/' + str(article.id)" class="news-read-more">
+                                            Read More <i class="fa fa-arrow-right ms-1"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </section>
+
+        </t>
+    </template>
+
+    <!-- =====================================================================
+         NEWS DETAIL PAGE
+         ===================================================================== -->
+    <template id="news_detail_page" name="News Article">
+        <t t-call="mutego_distribution.mutego_layout">
+
+            <section class="mutego-page-hero">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/news">News</a></li>
+                            <li class="breadcrumb-item active" t-esc="news.title"/>
+                        </ol>
+                    </nav>
+                </div>
+            </section>
+
+            <section class="mutego-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Article -->
+                            <article class="news-article">
+                                <div class="article-meta mb-3">
+                                    <span class="news-date" t-esc="news.published_date"/>
+                                    <t t-if="news.author">
+                                        <span class="mx-2">|</span>
+                                        <span class="news-author">by <t t-esc="news.author"/></span>
+                                    </t>
+                                </div>
+                                <h1 class="article-title" t-esc="news.title"/>
+                                <p class="article-summary lead" t-esc="news.summary"/>
+                                <t t-if="news.image">
+                                    <img t-att-src="'/web/image/mutego.news/' + str(news.id) + '/image'"
+                                         t-att-alt="news.title"
+                                         class="article-featured-img img-fluid mb-4"/>
+                                </t>
+                                <t t-if="news.content">
+                                    <div class="article-content" t-out="news.content"/>
+                                </t>
+                            </article>
+                            <div class="mt-4">
+                                <a href="/news" class="btn mutego-btn-outline">
+                                    <i class="fa fa-arrow-left me-2"/> Back to News
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar -->
+                        <div class="col-lg-4 mt-5 mt-lg-0">
+                            <t t-if="other_news">
+                                <div class="sidebar-widget">
+                                    <h5 class="sidebar-heading">More News</h5>
+                                    <t t-foreach="other_news" t-as="other">
+                                        <div class="sidebar-news-item">
+                                            <span class="news-date" t-esc="other.published_date"/>
+                                            <h6>
+                                                <a t-att-href="'/news/' + str(other.id)" t-esc="other.title"/>
+                                            </h6>
+                                        </div>
+                                    </t>
+                                </div>
+                            </t>
+                            <div class="sidebar-widget mt-4">
+                                <h5 class="sidebar-heading">Stay Connected</h5>
+                                <p>Want to receive our latest news? Get in touch with us.</p>
+                                <a href="/contact" class="btn mutego-btn-primary w-100">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </t>
+    </template>
+
+</odoo>

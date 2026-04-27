@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- =====================================================================
+         HOME PAGE
+         ===================================================================== -->
+    <template id="homepage" name="Mutego Home Page">
+        <t t-call="mutego_distribution.mutego_layout">
+
+            <!-- ── HERO CAROUSEL SECTION ─────────────────────────────────────── -->
+            <section id="mutegoHeroCarousel" class="carousel slide carousel-fade mutego-hero-carousel" data-bs-ride="carousel" data-bs-interval="6000">
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#mutegoHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#mutegoHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#mutegoHeroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <!-- Carousel Inner -->
+                <div class="carousel-inner">
+                    
+                    <!-- Slide 1: General Excellence -->
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" class="d-block w-100 hero-carousel-img" alt="Warehouse Operations"/>
+                        <div class="hero-overlay-dark"></div>
+                        <div class="carousel-caption hero-carousel-caption">
+                            <div class="container text-start">
+                                <div class="row">
+                                    <div class="col-lg-7">
+                                        <span class="hero-badge">
+                                            <span class="badge-dot"/>
+                                            Authorized National Distributor
+                                        </span>
+                                        <h1 class="hero-title">
+                                            Delivering<br/>
+                                            <span class="hero-accent">Excellence</span><br/>
+                                            At Every Scale.
+                                        </h1>
+                                        <p class="hero-subtitle">
+                                            Mutego Distribution is the premier supply chain partner for the world's
+                                            most iconic beverage brands, moving millions of bottles with precision and pride.
+                                        </p>
+                                        <div class="hero-actions mt-4">
+                                            <a href="/products" class="btn mutego-btn-primary btn-lg me-3">Explore Our Catalog</a>
+                                            <a href="/contact" class="btn mutego-btn-outline-light btn-lg">Become a Partner</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Extensive Branch Network -->
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&amp;w=2075&amp;auto=format&amp;fit=crop" class="d-block w-100 hero-carousel-img" alt="Fleet &amp; Logistics"/>
+                        <div class="hero-overlay-dark"></div>
+                        <div class="carousel-caption hero-carousel-caption">
+                            <div class="container text-start">
+                                <div class="row">
+                                    <div class="col-lg-7">
+                                        <span class="hero-badge">
+                                            <span class="badge-dot"/>
+                                            Nationwide Coverage
+                                        </span>
+                                        <h1 class="hero-title">
+                                            Connecting<br/>
+                                            <span class="hero-accent">Brands</span><br/>
+                                            To Consumers.
+                                        </h1>
+                                        <p class="hero-subtitle">
+                                            With our vast network of branches and fleet of specialized vehicles, we guarantee seamless delivery everywhere in Kenya.
+                                        </p>
+                                        <div class="hero-actions mt-4">
+                                            <a href="/branches" class="btn mutego-btn-primary btn-lg me-3">Our Network</a>
+                                            <a href="/about" class="btn mutego-btn-outline-light btn-lg">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Growth and Partnership -->
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&amp;w=1932&amp;auto=format&amp;fit=crop" class="d-block w-100 hero-carousel-img" alt="Retail Partnership"/>
+                        <div class="hero-overlay-dark"></div>
+                        <div class="carousel-caption hero-carousel-caption">
+                            <div class="container text-start">
+                                <div class="row">
+                                    <div class="col-lg-7">
+                                        <span class="hero-badge">
+                                            <span class="badge-dot"/>
+                                            Grow With Us
+                                        </span>
+                                        <h1 class="hero-title">
+                                            Your Reliable<br/>
+                                            <span class="hero-accent">Growth Partner</span>
+                                        </h1>
+                                        <p class="hero-subtitle">
+                                            Experience top-tier service, competitive pricing, and uncompromised quality assurance for your retail business.
+                                        </p>
+                                        <div class="hero-actions mt-4">
+                                            <a href="/contact" class="btn mutego-btn-primary btn-lg me-3">Partner With Us</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#mutegoHeroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#mutegoHeroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </section>
+
+            <!-- ── STATS BAR ─────────────────────────────────────────── -->
+            <section class="mutego-stats-bar">
+                <div class="container">
+                    <div class="row text-center gy-4">
+                        <div class="col-6 col-md-3">
+                            <div class="stat-item">
+                                <div class="stat-number" t-esc="total_products"/>
+                                <div class="stat-label">Products</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="stat-item">
+                                <div class="stat-number" t-esc="total_branches"/>
+                                <div class="stat-label">Branches</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="stat-item">
+                                <div class="stat-number">20+</div>
+                                <div class="stat-label">Years of Service</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="stat-item">
+                                <div class="stat-number">500K+</div>
+                                <div class="stat-label">Cases Delivered/Month</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── BRANDS WE DISTRIBUTE ──────────────────────────────── -->
+            <section class="mutego-section">
+                <div class="container">
+                    <div class="section-header text-center mb-5">
+                        <span class="section-tag">Our Portfolio</span>
+                        <h2 class="section-title">Brands We Distribute</h2>
+                        <p class="section-subtitle">
+                            We are the authorized regional distributor for PepsiCo's world-class beverage portfolio,
+                            bringing global brands to local communities across Kenya.
+                        </p>
+                    </div>
+                    <div class="row gy-4 justify-content-center">
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="brand-card">
+                                <div class="brand-icon brand-pepsi">P</div>
+                                <div class="brand-name">Pepsi</div>
+                                <a href="/products?brand=pepsi" class="brand-link stretched-link">View Range</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="brand-card">
+                                <div class="brand-icon brand-7up">7UP</div>
+                                <div class="brand-name">7UP</div>
+                                <a href="/products?brand=7up" class="brand-link stretched-link">View Range</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="brand-card">
+                                <div class="brand-icon brand-dew">DEW</div>
+                                <div class="brand-name">Mountain Dew</div>
+                                <a href="/products?brand=mountain_dew" class="brand-link stretched-link">View Range</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="brand-card">
+                                <div class="brand-icon brand-mirinda">M</div>
+                                <div class="brand-name">Mirinda</div>
+                                <a href="/products?brand=mirinda" class="brand-link stretched-link">View Range</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="brand-card">
+                                <div class="brand-icon brand-aquafina">Aq</div>
+                                <div class="brand-name">Aquafina</div>
+                                <a href="/products?brand=aquafina" class="brand-link stretched-link">View Range</a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="brand-card">
+                                <div class="brand-icon brand-lipton">Lt</div>
+                                <div class="brand-name">Lipton</div>
+                                <a href="/products?brand=lipton" class="brand-link stretched-link">View Range</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── FEATURED PRODUCTS ─────────────────────────────────── -->
+            <section class="mutego-section mutego-section-alt">
+                <div class="container">
+                    <div class="section-header text-center mb-5">
+                        <span class="section-tag">Our Products</span>
+                        <h2 class="section-title">Featured Products</h2>
+                    </div>
+                    <div class="row gy-4">
+                        <t t-foreach="featured_products" t-as="product">
+                            <div class="col-6 col-md-4 col-lg-2">
+                                <a t-att-href="'/products/' + str(product.id)" class="product-card-link">
+                                    <div class="product-card">
+                                        <div class="product-image-wrap">
+                                            <t t-if="product.image">
+                                                <img t-att-src="'/web/image/mutego.product/' + str(product.id) + '/image_thumb'"
+                                                     t-att-alt="product.name"
+                                                     class="product-img"/>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="product-img-placeholder">
+                                                    <span t-esc="product.get_brand_label()"/>
+                                                </div>
+                                            </t>
+                                        </div>
+                                        <div class="product-info">
+                                            <span class="product-brand" t-esc="product.get_brand_label()"/>
+                                            <h5 class="product-name" t-esc="product.name"/>
+                                            <t t-if="product.volume_ml">
+                                                <span class="product-volume" t-esc="str(product.volume_ml) + 'ml'"/>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="text-center mt-5">
+                        <a href="/products" class="btn mutego-btn-primary btn-lg">View Full Catalog</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── OUR BRANCHES ──────────────────────────────────────── -->
+            <section class="mutego-section">
+                <div class="container">
+                    <div class="section-header text-center mb-5">
+                        <span class="section-tag">Nationwide Reach</span>
+                        <h2 class="section-title">Our Branch Network</h2>
+                        <p class="section-subtitle">
+                            Strategically located across Kenya to serve you faster and better.
+                        </p>
+                    </div>
+                    <div class="row gy-4">
+                        <t t-foreach="branches" t-as="branch">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="branch-card">
+                                    <t t-if="branch.is_headquarters">
+                                        <span class="branch-hq-badge">Headquarters</span>
+                                    </t>
+                                    <h4 class="branch-name" t-esc="branch.name"/>
+                                    <p class="branch-location">
+                                        <i class="fa fa-map-marker me-1"/>
+                                        <t t-esc="branch.city"/>, <t t-esc="branch.country_id.name"/>
+                                    </p>
+                                    <t t-if="branch.phone">
+                                        <p class="branch-contact">
+                                            <i class="fa fa-phone me-1"/>
+                                            <a t-att-href="'tel:' + branch.phone" t-esc="branch.phone"/>
+                                        </p>
+                                    </t>
+                                    <t t-if="branch.manager_name">
+                                        <p class="branch-manager">
+                                            <i class="fa fa-user me-1"/>
+                                            Manager: <t t-esc="branch.manager_name"/>
+                                        </p>
+                                    </t>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="text-center mt-5">
+                        <a href="/branches" class="btn mutego-btn-outline btn-lg">View All Branches</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── WHY CHOOSE MUTEGO ─────────────────────────────────── -->
+            <section class="mutego-section mutego-section-dark">
+                <div class="container">
+                    <div class="section-header text-center mb-5">
+                        <span class="section-tag light">Why Mutego</span>
+                        <h2 class="section-title text-white">The Mutego Difference</h2>
+                    </div>
+                    <div class="row gy-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fa fa-truck fa-2x"/></div>
+                                <h5>Reliable Delivery</h5>
+                                <p>On-time, every time. Our fleet ensures your products arrive fresh and on schedule.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fa fa-certificate fa-2x"/></div>
+                                <h5>Authorized Partner</h5>
+                                <p>We are an officially authorized PepsiCo distributor, guaranteeing product authenticity.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fa fa-map fa-2x"/></div>
+                                <h5>Nationwide Coverage</h5>
+                                <p>5 strategically placed branches covering major cities and regions across Kenya.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="value-card">
+                                <div class="value-icon"><i class="fa fa-handshake-o fa-2x"/></div>
+                                <h5>Partnership Focus</h5>
+                                <p>We grow together with our clients — flexible terms, dedicated account managers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── LATEST NEWS ───────────────────────────────────────── -->
+            <t t-if="latest_news">
+                <section class="mutego-section">
+                    <div class="container">
+                        <div class="section-header text-center mb-5">
+                            <span class="section-tag">Latest Updates</span>
+                            <h2 class="section-title">News &amp; Announcements</h2>
+                        </div>
+                        <div class="row gy-4">
+                            <t t-foreach="latest_news" t-as="article">
+                                <div class="col-md-4">
+                                    <div class="news-card">
+                                        <t t-if="article.image">
+                                            <img t-att-src="'/web/image/mutego.news/' + str(article.id) + '/image_thumb'"
+                                                 t-att-alt="article.title"
+                                                 class="news-img"/>
+                                        </t>
+                                        <t t-else="">
+                                            <div class="news-img-placeholder"/>
+                                        </t>
+                                        <div class="news-body">
+                                            <span class="news-date" t-esc="article.published_date"/>
+                                            <h5 class="news-title" t-esc="article.title"/>
+                                            <p class="news-summary" t-esc="article.summary"/>
+                                            <a t-att-href="'/news/' + str(article.id)" class="news-read-more">
+                                                Read More <i class="fa fa-arrow-right ms-1"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="text-center mt-5">
+                            <a href="/news" class="btn mutego-btn-outline btn-lg">All News</a>
+                        </div>
+                    </div>
+                </section>
+            </t>
+
+            <!-- ── CALL TO ACTION ────────────────────────────────────── -->
+            <section class="mutego-cta">
+                <div class="container text-center">
+                    <h2 class="cta-title">Ready to Partner with Mutego?</h2>
+                    <p class="cta-subtitle">
+                        Join hundreds of retailers and wholesalers who trust Mutego Distribution
+                        for their Pepsi and 7UP supply chain needs.
+                    </p>
+                    <a href="/contact" class="btn mutego-btn-primary btn-lg me-3">Get in Touch</a>
+                    <a href="/about" class="btn mutego-btn-outline-light btn-lg">Learn About Us</a>
+                </div>
+            </section>
+
+        </t>
+    </template>
+
+</odoo>

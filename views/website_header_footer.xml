@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- =====================================================================
+         MUTEGO LAYOUT — wraps all Mutego website pages
+         ===================================================================== -->
+    <template id="mutego_layout" name="Mutego Layout">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+            <t t-set="head">
+                <link rel="stylesheet" type="text/css" t-att-href="'/mutego_distribution/static/src/css/mutego.css'"/>
+            </t>
+
+            <!-- HEADER -->
+            <header id="mutego-header" class="mutego-header-wrap sticky-top">
+                <!-- Top Bar -->
+                <div class="mutego-top-bar d-none d-lg-block">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <span class="top-bar-info"><i class="fa fa-phone me-2"></i>+254 700 100 000</span>
+                                <span class="top-bar-info ms-4"><i class="fa fa-envelope me-2"></i>info@mutego.co.ke</span>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <span class="top-bar-info"><i class="fa fa-clock-o me-2"></i>Mon - Fri: 8:00 AM - 5:00 PM</span>
+                                <a href="#" class="top-bar-social ms-4"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="top-bar-social ms-2"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="top-bar-social ms-2"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Navbar -->
+                <div class="mutego-header bg-white">
+                    <div class="container">
+                        <nav class="navbar navbar-expand-lg navbar-light py-3 py-lg-0">
+                            <!-- Brand Logo -->
+                            <a class="navbar-brand mutego-brand" href="/">
+                                <img src="/mutego_distribution/static/description/logo.png" alt="Mutego Distribution" class="img-fluid" style="max-height: 50px;"/>
+                            </a>
+
+                            <!-- Mobile toggle -->
+                            <button class="navbar-toggler shadow-none border-0" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#mutegoNav"
+                                    aria-controls="mutegoNav"
+                                    aria-expanded="false" 
+                                    aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <!-- Nav Links Collapse -->
+                            <div class="collapse navbar-collapse" id="mutegoNav">
+                                <div class="navbar-nav mx-auto align-items-lg-center w-100 justify-content-center">
+                                    <ul class="navbar-nav mx-auto align-items-lg-center">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/">Home</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/about">About Us</a>
+                                        </li>
+                                        <!-- Dropdown for Products -->
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="/products" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Products
+                                            </a>
+                                            <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="productsDropdown">
+                                                <li><a class="dropdown-item" href="/products">All Products</a></li>
+                                                <li><a class="dropdown-item" href="/products?brand=pepsi">Pepsi</a></li>
+                                                <li><a class="dropdown-item" href="/products?brand=7up">7UP</a></li>
+                                                <li><a class="dropdown-item" href="/products?brand=aquafina">Aquafina</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/branches">Branches</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/news">News</a>
+                                        </li>
+                                    </ul>
+                                    <!-- Header Actions -->
+                                    <div class="d-flex align-items-center gap-3 mt-4 mt-lg-0 pb-4 pb-lg-0 px-3 px-lg-0 ms-lg-auto">
+                                        <a href="/shop/cart" class="header-action-icon text-dark position-relative">
+                                            <i class="fa fa-shopping-cart fa-lg"></i>
+                                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light">
+                                                0
+                                            </span>
+                                        </a>
+                                        <a href="/web/login" class="header-action-icon text-dark">
+                                            <i class="fa fa-user-circle-o fa-lg"></i>
+                                        </a>
+                                        <a class="btn mutego-btn-primary ms-lg-2 w-100 w-lg-auto" href="/contact">Get in Touch</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+            <!-- PAGE CONTENT -->
+            <main id="mutego-main">
+                <t t-out="0"/>
+            </main>
+
+
+            
+
+            <!-- FOOTER -->
+            <footer id="mutego-footer" class="mutego-footer">
+                <div class="container">
+                    <div class="row gy-5">
+
+                        <!-- Company Info -->
+                        <div class="col-lg-4">
+                            <div class="mutego-brand mb-3">
+                                <img src="/mutego_distribution/static/description/logo.png" alt="Mutego Distribution" class="img-fluid" style="max-height: 60px;"/>
+                            </div>
+                            <p class="footer-tagline">
+                                Kenya's trusted authorized distributor of PepsiCo beverages —
+                                delivering excellence from factory to shelf across the country.
+                            </p>
+                            <div class="footer-social mt-3">
+                                <a href="#" class="social-link" aria-label="Facebook">
+                                    <i class="fa fa-facebook"/>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Twitter">
+                                    <i class="fa fa-twitter"/>
+                                </a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">
+                                    <i class="fa fa-linkedin"/>
+                                </a>
+                                <a href="#" class="social-link" aria-label="Instagram">
+                                    <i class="fa fa-instagram"/>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Quick Links -->
+                        <div class="col-lg-2 col-md-4">
+                            <h5 class="footer-heading">Quick Links</h5>
+                            <ul class="footer-links">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about">About Us</a></li>
+                                <li><a href="/products">Products</a></li>
+                                <li><a href="/branches">Our Branches</a></li>
+                                <li><a href="/news">News</a></li>
+                                <li><a href="/contact">Contact Us</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Brands -->
+                        <div class="col-lg-2 col-md-4">
+                            <h5 class="footer-heading">Brands We Distribute</h5>
+                            <ul class="footer-links">
+                                <li><a href="/products?brand=pepsi">Pepsi</a></li>
+                                <li><a href="/products?brand=7up">7UP</a></li>
+                                <li><a href="/products?brand=mountain_dew">Mountain Dew</a></li>
+                                <li><a href="/products?brand=mirinda">Mirinda</a></li>
+                                <li><a href="/products?brand=aquafina">Aquafina</a></li>
+                                <li><a href="/products?brand=lipton">Lipton</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Contact Info -->
+                        <div class="col-lg-4 col-md-4">
+                            <h5 class="footer-heading">Headquarters</h5>
+                            <ul class="footer-contact-tree">
+                                <li>
+                                    <i class="fa fa-map-marker me-2"/>
+                                    123 Industrial Area, Likoni Road, Nairobi, Kenya
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone me-2"/>
+                                    <a href="tel:+254700100000">+254 700 100 000</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope me-2"/>
+                                    <a href="mailto:info@mutego.co.ke">info@mutego.co.ke</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-clock-o me-2"/>
+                                    Mon - Fri: 8:00 AM - 5:00 PM
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- Footer Bottom -->
+                    <div class="footer-bottom mt-5 pt-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <p class="mb-0">
+                                    &amp;copy; <t t-esc="datetime.date.today().year"/> Mutego Distribution Company. All rights reserved.
+                                </p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <span class="footer-badge">Authorized PepsiCo Distributor</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mutego_product_public,mutego.product public read,model_mutego_product,base.group_public,1,0,0,0
+access_mutego_product_user,mutego.product user,model_mutego_product,base.group_user,1,1,1,1
+access_mutego_branch_public,mutego.branch public read,model_mutego_branch,base.group_public,1,0,0,0
+access_mutego_branch_user,mutego.branch user,model_mutego_branch,base.group_user,1,1,1,1
+access_mutego_news_public,mutego.news public read,model_mutego_news,base.group_public,1,0,0,0
+access_mutego_news_user,mutego.news user,model_mutego_news,base.group_user,1,1,1,1
+access_mutego_news_tag_public,mutego.news.tag public read,model_mutego_news_tag,base.group_public,1,0,0,0
+access_mutego_news_tag_user,mutego.news.tag user,model_mutego_news_tag,base.group_user,1,1,1,1
+access_mutego_contact_public,mutego.contact public create,model_mutego_contact,base.group_public,0,0,1,0
+access_mutego_contact_user,mutego.contact user,model_mutego_contact,base.group_user,1,1,1,1

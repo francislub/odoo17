@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Top-level Website Menu -->
+    <record id="mutego_menu_home" model="website.menu">
+        <field name="name">Home</field>
+        <field name="url">/</field>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="mutego_menu_about" model="website.menu">
+        <field name="name">About Us</field>
+        <field name="url">/about</field>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="mutego_menu_products" model="website.menu">
+        <field name="name">Products</field>
+        <field name="url">/products</field>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="sequence">30</field>
+    </record>
+
+    <record id="mutego_menu_branches" model="website.menu">
+        <field name="name">Branches</field>
+        <field name="url">/branches</field>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="sequence">40</field>
+    </record>
+
+    <record id="mutego_menu_news" model="website.menu">
+        <field name="name">News</field>
+        <field name="url">/news</field>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="sequence">50</field>
+    </record>
+
+    <record id="mutego_menu_contact" model="website.menu">
+        <field name="name">Contact Us</field>
+        <field name="url">/contact</field>
+        <field name="website_id" ref="website.default_website"/>
+        <field name="sequence">60</field>
+    </record>
+
+    <!-- Backend Menu -->
+    <menuitem id="mutego_main_menu"
+              name="Mutego Distribution"
+              web_icon="mutego_distribution,static/description/icon.png"
+              sequence="50"/>
+
+    <menuitem id="mutego_content_menu"
+              name="Content"
+              parent="mutego_main_menu"
+              sequence="10"/>
+
+    <menuitem id="mutego_products_menu"
+              name="Products"
+              parent="mutego_content_menu"
+              action="action_mutego_product"
+              sequence="10"/>
+
+    <menuitem id="mutego_branches_menu"
+              name="Branches"
+              parent="mutego_content_menu"
+              action="action_mutego_branch"
+              sequence="20"/>
+
+    <menuitem id="mutego_news_menu"
+              name="News &amp; Announcements"
+              parent="mutego_content_menu"
+              action="action_mutego_news"
+              sequence="30"/>
+
+    <menuitem id="mutego_contacts_menu"
+              name="Contact Submissions"
+              parent="mutego_main_menu"
+              action="action_mutego_contact"
+              sequence="20"/>
+
+</odoo>
