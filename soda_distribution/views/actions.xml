@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="action_mutego_news" model="ir.actions.act_window">
-        <field name="name">News & Announcements</field>
+        <field name="name">News &amp; Announcements</field>
         <field name="res_model">mutego.news</field>
         <field name="view_mode">tree,form</field>
         <field name="context">{}</field>
